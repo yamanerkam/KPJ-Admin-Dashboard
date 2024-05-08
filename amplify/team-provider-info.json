@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-kpjadmindashboard-dev-406c4-authRole",
+      "UnauthRoleArn": "arn:aws:iam::590183956582:role/amplify-kpjadmindashboard-dev-406c4-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::590183956582:role/amplify-kpjadmindashboard-dev-406c4-authRole",
+      "Region": "eu-north-1",
+      "DeploymentBucketName": "amplify-kpjadmindashboard-dev-406c4-deployment",
+      "UnauthRoleName": "amplify-kpjadmindashboard-dev-406c4-unauthRole",
+      "StackName": "amplify-kpjadmindashboard-dev-406c4",
+      "StackId": "arn:aws:cloudformation:eu-north-1:590183956582:stack/amplify-kpjadmindashboard-dev-406c4/878506a0-0d58-11ef-ae0f-0e88031a40d8",
+      "AmplifyAppId": "d1k8l8905h9253"
+    },
+    "categories": {
+      "auth": {
+        "kpjadmindashboard0c23f3a8": {}
+      }
+    }
+  }
+}
