@@ -1,25 +1,85 @@
 .login-card {
+
     display: flex;
     flex-direction: column;
-    border: 1px solid black;
+    border: 1px solid rgba(226, 226, 226, 0.2);
     justify-content: center;
     align-items: center;
-    padding: 100px;
+    padding: 60px 70px;
+    background-color: rgba(226, 226, 226, 0.2);
+    border-radius: 20px;
+
+
 
 }
 
-.login-card input {
-    width: 70%;
+.login-card form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.login-card form input {
+    background-color: transparent;
+    border: 1px solid white;
+}
+
+
+
+.login-card h1 {
+    margin: 20px 0px;
+    color: white;
+}
+
+
+.login {
+
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: darkseagreen;
+
 }
 
 .login {
-    min-height: 90vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    /* ... */
+    background-color: #98D7C2;
+}
+
+.login-card {
+    /* ... */
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.login-card h1 {
+    /* ... */
+    font-family: 'Roboto', sans-serif;
+    font-size: 2.2em;
+    letter-spacing: 2px;
+}
+
+.login-card form input {
+    /* ... */
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    padding: 10px 15px;
+}
+
+.login-card form input::placeholder {
+    color: white;
+}
+
+.login-card form input:focus {
+    outline: none;
 }
 
 .login-card button {
-    width: 75%;
-
+    /* Sample - add if you have a button */
+    background-color: #77C9A9;
+    border: none;
+    color: white;
+    padding: 12px 20px;
+    cursor: pointer;
+    border-radius: 5px;
 }
