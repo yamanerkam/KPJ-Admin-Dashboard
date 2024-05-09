@@ -22,7 +22,7 @@ export default function Login() {
     async function handleSubmit(e) {
         e.preventDefault()
         try {
-            changeAuth(true)
+            changeAuth()
             const { isSignedIn, nextStep } = await signIn({ username, password })
             navigate("/dashboard")
         } catch (error) {

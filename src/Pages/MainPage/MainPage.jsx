@@ -12,7 +12,7 @@ export default function MainPage() {
 
     function handleSignOut() {
         try {
-            changeAuth(false)
+            changeAuth()
             signOut({ global: true });
             navigate("/login")
         } catch (error) {
