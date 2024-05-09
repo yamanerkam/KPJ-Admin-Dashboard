@@ -3,12 +3,13 @@ import React, { useContext } from "react";
 import AuthProvider from './Contexts/AuthContext';
 
 
-const PrivateRoutes = (prop) => {
+const PublicRoutes = (prop) => {
+    console.log(prop)
     const { isAuthenticated } = useContext(AuthProvider)
     console.log(isAuthenticated)
     return (
-        isAuthenticated ? <Outlet /> : <Navigate to="/login" />
+        isAuthenticated ? <Navigate to="/dashboard" /> : <Outlet />
     )
 }
 
-export default PrivateRoutes
+export default PublicRoutes
