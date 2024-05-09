@@ -5,6 +5,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import MainPage from './Pages/MainPage/MainPage';
 import NotFound from './Pages/NotFound/NotFound';
 import PrivateRoutes from './PrivateRoutes';
+import NewBlog from './Pages/CreateNewBlog/NewBlog';
 
 function App() {
 
@@ -14,11 +15,11 @@ function App() {
 
       <Routes>
         <Route path='/' element={<Navigate to='/login' />} />
-        <Route exact path='/login' element={<Login />} />
+        <Route path='/login' element={<Login />} />
 
         <Route element={<PrivateRoutes />}>
           <Route path='/dashboard' element={<MainPage />} />
-          <Route path='/dashboard-1' element={<MainPage />} />
+          <Route path='/new-blog' element={<NewBlog />} />
           <Route path='/dashboardd' element={<MainPage />} />
         </Route>
         <Route path='*' element={<NotFound />} />

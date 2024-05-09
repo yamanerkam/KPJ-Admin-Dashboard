@@ -10,10 +10,10 @@ export default function MainPage() {
     const navigate = useNavigate();
     const { isAuthenticated, changeAuth } = useContext(AuthProvider);
 
-    async function handleSignOut() {
+    function handleSignOut() {
         try {
-            await signOut({ global: true });
             changeAuth(false)
+            signOut({ global: true });
             navigate("/login")
         } catch (error) {
             console.log('error signing out: ', error);

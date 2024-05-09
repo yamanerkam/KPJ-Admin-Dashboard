@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import { Amplify } from 'aws-amplify';
 import { signIn } from 'aws-amplify/auth'
 import awsExports from './../../aws-exports'
@@ -14,7 +14,7 @@ Amplify.configure(awsExports);
 
 export default function Login() {
     const navigate = useNavigate();
-    const { changeAuth } = useContext(AuthProvider);
+    const { changeAuth, isAuthenticated } = useContext(AuthProvider);
     const [username, setUserName] = useState('')
     const [password, setPassword] = useState('')
 
@@ -22,9 +22,8 @@ export default function Login() {
     async function handleSubmit(e) {
         e.preventDefault()
         try {
-            const { isSignedIn, nextStep } = await signIn({ username, password });
-            console.log('yes')
-            changeAuth()
+            changeAuth(true)
+            const { isSignedIn, nextStep } = await signIn({ username, password })
             navigate("/dashboard")
         } catch (error) {
             console.log('error signing in', error);

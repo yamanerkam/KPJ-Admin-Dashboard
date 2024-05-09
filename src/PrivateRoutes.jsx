@@ -4,7 +4,8 @@ import AuthProvider from './Contexts/AuthContext';
 
 
 const PrivateRoutes = () => {
-    const { isAuthenticated, changeAuth } = useContext(AuthProvider);
+    const { isAuthenticated } = useContext(AuthProvider)
+    console.log(isAuthenticated)
     return (
         isAuthenticated ? <Outlet /> : <Navigate to="/login" />
     )
