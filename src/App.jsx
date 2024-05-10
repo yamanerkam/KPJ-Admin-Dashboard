@@ -23,11 +23,11 @@ function App() {
 
 
 
-
         <Route element={<PrivateRoutes />}>
-          <Route path='/dashboard' element={<MainPage />} />
-          <Route path='/new-blog' element={<NewBlog />} />
-          <Route path='/dashboardd' element={<MainPage />} />
+          <Route path='/dashboard' element={<MainPage />}>
+            <Route path='new-blog' element={<NewBlog />} />
+          </Route>
+
         </Route>
         <Route path='*' element={<NotFound />} />
       </Routes>
