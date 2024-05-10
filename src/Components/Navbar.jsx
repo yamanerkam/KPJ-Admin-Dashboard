@@ -1,9 +1,25 @@
-import React from 'react'
+import React, { useContext } from "react";
 import './Navbar.css'
+import { useNavigate } from "react-router-dom";
+import AuthProvider from '../Contexts/AuthContext';
 
 export default function Navbar() {
+    const { isAuthenticated, changeAuth } = useContext(AuthProvider);
+    const navigate = useNavigate();
+
+    function handleSignOut() {
+        try {
+            changeAuth()
+            signOut({ global: true });
+            navigate("/login")
+        } catch (error) {
+            console.log('error signing out: ', error);
+        }
+    }
     return (
-        <div className='navbar'> <span>KPJ</span>
+        <div className='navbar'>
+
+            <span>KPJ</span>
             <ul>
                 <li>
                     All Blogs
@@ -21,6 +37,9 @@ export default function Navbar() {
                     Delete a blog
                 </li>
 
-            </ul></div>
+            </ul>
+            <button onClick={handleSignOut}>Sign Out</button>
+
+        </div>
     )
 }

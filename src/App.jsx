@@ -16,9 +16,7 @@ function App() {
 
   return (
     <>
-      {
-        location.pathname !== '/login' && <Navbar />
-      }
+
 
 
 
@@ -37,7 +35,7 @@ function App() {
           </Route>
 
         </Route>
-        <Route path='*' element={<NotFound />} />
+        <Route path='*' element={<Layout><NotFound /></Layout>} />
       </Routes>
     </>
   )
