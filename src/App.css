@@ -2,3 +2,21 @@ body {
     margin: 0;
     padding: 0;
 }
+
+.app-container {
+    display: flex;
+    /* Use flexbox for layout */
+}
+
+.main-content {
+    flex: 1;
+    /* Allows main content to take up available space */
+    padding-left: 250px;
+    /* Adjust this to the width of your Navbar */
+}
+
+/* Add styling for your Navbar */
+.navbar {
+    width: 250px;
+    /* Adjust to your Navbar width */
+}
