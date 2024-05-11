@@ -19,6 +19,7 @@
 }
 
 .navbar ul li {
+    cursor: pointer;
     list-style: none;
 }
 
@@ -27,4 +28,15 @@
     gap: 20px;
     display: flex;
     flex-direction: column;
+}
+
+.navbar button {
+    margin: 20px;
+    align-self: center;
+    width: 40%;
+    cursor: pointer;
+}
+
+.hide {
+    display: none;
 }

@@ -1,11 +1,18 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState, useRef } from "react";
 import './Navbar.css'
 import { useNavigate } from "react-router-dom";
 import AuthProvider from '../Contexts/AuthContext';
 
 export default function Navbar() {
     const { isAuthenticated, changeAuth } = useContext(AuthProvider);
+    const [toggle, setToggle] = useState(false)
+    const spanHider = useRef(null);
     const navigate = useNavigate();
+    function handleToggle() {
+
+        setToggle(!toggle)
+        console.log('toggle:' + ' ' + toggle)
+    }
 
     function handleSignOut() {
         try {
@@ -17,9 +24,9 @@ export default function Navbar() {
         }
     }
     return (
-        <div className='navbar'>
-
-            <span>KPJ</span>
+        <div className={`navbar ${toggle ? 'toggleOff' : ''}`}>
+            <button onClick={handleToggle}>close</button>
+            <span  >KPJ</span>
             <ul>
                 <li>
                     All Blogs
