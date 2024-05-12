@@ -1,30 +1,64 @@
 .navbar {
-    margin: 0;
-    padding: 0;
-    width: 200px;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
-    background-color: #f1f1f1;
     position: fixed;
+    transition: width 0.7s ease-in-out;
     height: 100%;
     overflow: auto;
     gap: 20px;
+    color: white;
+    border-right: 1px solid #4ec19a;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    width: 200px;
+    background-color: #6cc3a6;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.toggleOff {
+    overflow: hidden;
+    width: 50px;
 }
 
 
-.navbar span {
+.innn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: transform 0.3s ease;
+
+}
+
+.innn.toggOff {
+    transform: translateX(110%);
+
+}
+
+.logo {
     font-size: 2em;
     margin-top: 20px;
     align-self: center;
+    font-weight: bold;
 }
 
-.navbar ul li {
-    cursor: pointer;
+
+
+.list-item {
     list-style: none;
+    overflow: hidden;
+    margin: 0 10px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.list-item:hover {
+
+
+    transform: scale(1.05);
 }
 
 .navbar ul {
-    font-size: 1em;
     gap: 20px;
     display: flex;
     flex-direction: column;
@@ -35,8 +69,33 @@
     align-self: center;
     width: 40%;
     cursor: pointer;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 25px;
+    font-family: inherit;
+    background-color: #4ec19a;
+    color: white;
+    font-weight: 600;
+    transition: background-color 0.3s;
 }
 
-.hide {
-    display: none;
+.navbar button:hover {
+    background-color: #39997a;
+}
+
+.toggleOff .onOff {
+    margin: auto 5px;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.signOut {
+    font-size: 0.75em !important;
+}
+
+.onOff {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }

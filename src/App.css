@@ -1,28 +1,22 @@
 body {
     margin: 0;
     padding: 0;
+    background-color: #98D7C2;
+
+
 }
 
 .app-container {
     display: flex;
-    /* Use flexbox for layout */
 }
 
 .main-content {
+    transition: 0.7s ease-in-out;
     flex: 1;
-    /* Allows main content to take up available space */
-    padding-left: 250px;
-    /* Adjust this to the width of your Navbar */
+    padding-left: 200px;
 }
 
-/* Add styling for your Navbar */
-.navbar {
-    width: 250px;
-    transition: width 0.3s ease-in-out;
-    /* Add a smooth transition */
-}
-
-.toggleOff {
-    font-size: 1px;
-    width: 50px !important;
+.main-closed {
+    transition: 0.7s ease-in-out;
+    padding-left: 50px;
 }

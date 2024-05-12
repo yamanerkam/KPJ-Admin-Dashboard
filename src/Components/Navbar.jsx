@@ -1,18 +1,18 @@
-import React, { useContext, useEffect, useState, useRef } from "react";
+import React, { useContext, useState } from "react";
 import './Navbar.css'
 import { useNavigate } from "react-router-dom";
 import AuthProvider from '../Contexts/AuthContext';
+import LayoutContextProvider from "../Contexts/LayoutContext";
+import { GoSidebarExpand } from "react-icons/go";
+import { GoSidebarCollapse } from "react-icons/go";
+import { VscSignOut } from "react-icons/vsc";
+
 
 export default function Navbar() {
+    const { toggle, handleToggle } = useContext(LayoutContextProvider)
     const { isAuthenticated, changeAuth } = useContext(AuthProvider);
-    const [toggle, setToggle] = useState(false)
-    const spanHider = useRef(null);
     const navigate = useNavigate();
-    function handleToggle() {
 
-        setToggle(!toggle)
-        console.log('toggle:' + ' ' + toggle)
-    }
 
     function handleSignOut() {
         try {
@@ -25,27 +25,23 @@ export default function Navbar() {
     }
     return (
         <div className={`navbar ${toggle ? 'toggleOff' : ''}`}>
-            <button onClick={handleToggle}>close</button>
-            <span  >KPJ</span>
-            <ul>
-                <li>
-                    All Blogs
-                </li>
+            <button className="onOff" onClick={handleToggle}>
+                {toggle ? <GoSidebarCollapse size={25} /> : <GoSidebarExpand size={25} className="icon" />}
+            </button>
+            <div></div>
+            <div className={`innn ${toggle ? 'toggOff' : ''}`}>
+                <span className="logo">KPJ</span>
+                <ul>
 
-                <li>
-                    Create a new blog
-                </li>
-
-                <li>
-                    Update a blog
-                </li>
-
-                <li>
-                    Delete a blog
-                </li>
-
-            </ul>
-            <button onClick={handleSignOut}>Sign Out</button>
+                    <li className="list-item">All Blogs</li>
+                    <li className="list-item">Create a new blog</li>
+                    <li className="list-item">Update a blog</li>
+                    <li className="list-item">Delete a blog</li>
+                </ul>
+                <button className="signOut" onClick={handleSignOut}>
+                    <VscSignOut size={25} />
+                </button>
+            </div>
 
         </div>
     )
