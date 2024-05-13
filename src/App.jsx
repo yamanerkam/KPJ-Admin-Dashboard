@@ -30,10 +30,9 @@ function App() {
 
 
         <Route element={<PrivateRoutes />}>
-          <Route path="/dashboard" element={<Layout><MainPage /></Layout>}>
-            <Route path='new-blog' element={<NewBlog />} />
+          <Route path="/dashboard" element={<Layout><MainPage /></Layout>} />
+          <Route path='/new-blog' element={<Layout><NewBlog /></Layout>} />
 
-          </Route>
 
 
 

@@ -33,10 +33,10 @@ export default function Navbar() {
                 <span className="logo">KPJ</span>
                 <ul>
 
-                    <li className="list-item">Lin</li>
-                    <li className="list-item"><Link to='/dashboard/new-blog'>Create a new Blog</Link></li>
-                    <li className="list-item">Update a blog</li>
-                    <li className="list-item">Delete a blog</li>
+                    <li className="list-item"><Link to='/dashboard'>All Blogs</Link></li>
+                    <li className="list-item"><Link to='/new-blog'>Create a new Blog</Link></li>
+
+
                 </ul>
                 <button className="signOut" onClick={handleSignOut}>
                     <VscSignOut size={25} />
