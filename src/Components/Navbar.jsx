@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import './Navbar.css'
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import AuthProvider from '../Contexts/AuthContext';
 import LayoutContextProvider from "../Contexts/LayoutContext";
 import { GoSidebarExpand } from "react-icons/go";
@@ -33,8 +33,8 @@ export default function Navbar() {
                 <span className="logo">KPJ</span>
                 <ul>
 
-                    <li className="list-item">All Blogs</li>
-                    <li className="list-item">Create a new blog</li>
+                    <li className="list-item">Lin</li>
+                    <li className="list-item"><Link to='/dashboard/new-blog'>Create a new Blog</Link></li>
                     <li className="list-item">Update a blog</li>
                     <li className="list-item">Delete a blog</li>
                 </ul>

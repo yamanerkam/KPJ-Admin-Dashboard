@@ -32,7 +32,10 @@ function App() {
         <Route element={<PrivateRoutes />}>
           <Route path="/dashboard" element={<Layout><MainPage /></Layout>}>
             <Route path='new-blog' element={<NewBlog />} />
+
           </Route>
+
+
 
         </Route>
         <Route path='*' element={<Layout><NotFound /></Layout>} />
