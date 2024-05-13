@@ -5,31 +5,34 @@ import { Editor } from 'primereact/editor';
 
 export default function NewBlog() {
     const [value, setValue] = useState('');
-    const modules = {
-        toolbar: [
-            [{ 'header': [1, 2, false] }], // H1, H2, No Header
-            ['bold', 'italic', 'underline', 'strike', 'blockquote'], // Text formatting
-            [{ 'list': 'ordered' }, { 'list': 'bullet' }, { 'indent': '-1' }, { 'indent': '+1' }], // Lists
-            ['link', 'image', 'video'], // Media
-            ['clean'] // Clear formatting
-        ]
-    };
+    const [title, setTitle] = useState('');
 
-    const formats = [
-        'header',
-        'bold', 'italic', 'underline', 'strike', 'blockquote',
-        'list', 'bullet', 'indent',
-        'link', 'image', 'video'
-    ];
+    const handleCreate = (e) => {
+        e.preventDefault()
+        setValue('')
+        setTitle('')
+        console.log(title, value)
+    }
 
     return (
         <>
+            <form onSubmit={handleCreate} action="submit">
+                <div>
 
-            <div className='quill'>
+                    <input className='inp' onChange={((e) => setTitle(e.target.value))} value={title} type="text" />
+                    <button type='submit'>Create</button>
 
-                <Editor style={{ height: '320px' }} value={value} onTextChange={(e) => setValue(e.htmlValue)} />
+                </div>
 
-            </div>
+                <div className='quill'>
+                    <Editor style={{ height: '320px' }} value={value} onTextChange={(e) => setValue(e.htmlValue)} />
+                </div>
+
+
+            </form>
+
+
+
         </>
     )
 }

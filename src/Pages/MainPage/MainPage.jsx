@@ -10,7 +10,7 @@ export default function MainPage() {
 
             <div className="main-page">
 
-                <div>MainPage
+                <div>
                 </div>
                 <Outlet />
             </div>
