@@ -9,6 +9,7 @@ import PublicRoutes from './PublicRoutes';
 import NewBlog from './Pages/CreateNewBlog/NewBlog';
 import Navbar from './Components/Navbar';
 import Layout from './Layouts/Layout';
+import Blog from './Pages/Blog/Blog';
 
 function App() {
 
@@ -32,7 +33,7 @@ function App() {
         <Route element={<PrivateRoutes />}>
           <Route path="/dashboard" element={<Layout><MainPage /></Layout>} />
           <Route path='/new-blog' element={<Layout><NewBlog /></Layout>} />
-
+          <Route path='/blog/:id' element={<Layout><Blog /></Layout>} />
 
 
 
