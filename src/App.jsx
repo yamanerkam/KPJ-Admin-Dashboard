@@ -10,6 +10,7 @@ import NewBlog from './Pages/CreateNewBlog/NewBlog';
 import Navbar from './Components/Navbar';
 import Layout from './Layouts/Layout';
 import Blog from './Pages/Blog/Blog';
+import BlogEdit from './Pages/BlogEdit/BlogEdit';
 
 function App() {
 
@@ -34,6 +35,7 @@ function App() {
           <Route path="/dashboard" element={<Layout><MainPage /></Layout>} />
           <Route path='/new-blog' element={<Layout><NewBlog /></Layout>} />
           <Route path='/blog/:id' element={<Layout><Blog /></Layout>} />
+          <Route path='/blog/edit/:id' element={<Layout><BlogEdit /></Layout>} />
 
 
 

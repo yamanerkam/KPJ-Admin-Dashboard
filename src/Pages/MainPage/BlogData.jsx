@@ -23,5 +23,10 @@ export const BlogData = [
         'id': '5',
         "title": "A Guide to Creating a Successful Online Business",
         "body": "Starting an online business can be a rewarding endeavor. First, identify a niche market where you can provide unique value. Conduct thorough market research to understand your target audience and competitors. Next, create a comprehensive business plan outlining your goals, strategies, and financial projections. Build a professional website with user-friendly navigation..."
+    },
+    {
+        'id': '6',
+        "title": "a Successful Online Business",
+        "body": "Starting an online business can be a rewarding endeavor. First, identify a niche market where you can provide unique value. Conduct thorough market research to understand your target audience and competitors. Next, create a comprehensive business plan outlining your goals, strategies, and financial projections. Build a professional website with user-friendly navigation..."
     }
 ]

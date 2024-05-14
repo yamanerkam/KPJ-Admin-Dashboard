@@ -1,10 +1,10 @@
 import React from 'react'
 import './Card.css'
-import { useNavigate, Link } from "react-router-dom";
+import useButtonEdit from '../hooks/useButtonEdit'
 
 
 export default function Card(props) {
-
+    const handleClickEdit = useButtonEdit()
 
     return (
 
@@ -12,8 +12,8 @@ export default function Card(props) {
             <h1>{props.title}</h1>
             <img src={props.img} alt="" />
             <p>{props.body}</p>
-            <button>Edit</button>
+            <button onClick={() => handleClickEdit(props.id)}>Edit</button>
             <button>Delete</button>
-        </div>
+        </div >
     )
 }
