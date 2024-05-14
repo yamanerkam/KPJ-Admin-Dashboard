@@ -18,6 +18,8 @@ export default function BlogEdit() {
     return (
         <>
             <form onSubmit={handleCreate} action="submit">
+                <h1>Edit Page</h1>
+
                 <div>
 
                     <input className='inp' onChange={((e) => setTitle(e.target.value))} value={title} type="text" />

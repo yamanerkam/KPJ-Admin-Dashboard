@@ -18,6 +18,7 @@ export default function NewBlog() {
         <>
             <form onSubmit={handleCreate} action="submit">
                 <div>
+                    <h1>Create Page</h1>
 
                     <input className='inp' onChange={((e) => setTitle(e.target.value))} value={title} type="text" />
                     <button type='submit'>Create</button>
