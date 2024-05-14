@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 
 const useButtonEdit = () => {
@@ -7,6 +7,8 @@ const useButtonEdit = () => {
     const handleClickEdit = (id) => {
 
         navigate(`/blog/edit/${id}`);
+
+
     };
 
     return handleClickEdit;

@@ -21,6 +21,7 @@ export default function MainPage() {
                 {blogs && blogs.map((blog) => (
 
                     <Card
+                        id={blog.id}
                         img={re}
                         key={blog.id}
                         title={blog.title}
