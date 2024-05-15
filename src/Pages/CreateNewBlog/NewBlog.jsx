@@ -4,12 +4,36 @@ import { Editor } from 'primereact/editor';
 
 
 export default function NewBlog() {
-    const [value, setValue] = useState('');
+    const [content, setContent] = useState('');
     const [title, setTitle] = useState('');
 
-    const handleCreate = (e) => {
+    const handleCreate = async (e) => {
+
         e.preventDefault()
-        setValue('')
+
+        const newBlog = {
+            title,
+            content,
+
+        };
+
+        try {
+            const response = await fetch('http://localhost:3000/api/blogs', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(newBlog),
+            });
+            const data = await response.json();
+            console.log('Blog created:', data);
+        } catch (error) {
+            console.error('Error creating blog:', error);
+        }
+
+
+
+        setContent('')
         setTitle('')
         console.log(title, value)
     }
@@ -26,7 +50,8 @@ export default function NewBlog() {
                 </div>
 
                 <div className='quill'>
-                    <Editor style={{ height: '320px' }} value={value} onTextChange={(e) => setValue(e.htmlValue)} />
+
+                    <input style={{ height: '320px' }} value={content} onChange={(e) => setContent(e.target.value)} />
                 </div>
 
 

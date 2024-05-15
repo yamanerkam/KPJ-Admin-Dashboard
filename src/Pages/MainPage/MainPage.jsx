@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import './MainPage.css'
 import Card from "../../Components/Card";
 import re from './react.svg'
@@ -7,6 +7,16 @@ import { BlogData as blogs } from "./BlogData";
 
 
 export default function MainPage() {
+    const [data, setData] = useState(null);
+    useEffect(() => {
+        fetch('http://localhost:3000/api/blogs')
+            .then((response) => response.json())
+            .then((data) => {
+                setData(data)
+                console.log(data)
+            })
+            .catch((error) => console.error('Error fetching data:', error));
+    }, []);
     const navigate = useNavigate()
     const handleCardClick = (id) => {
         console.log(`Card with id ${id} clicked`);
@@ -18,20 +28,20 @@ export default function MainPage() {
 
             <div className="main-page">
 
-                {blogs && blogs.map((blog) => (
-
+                {data && (data.map((item) => (
                     <Card
-                        id={blog.id}
+                        id={item.id}
                         img={re}
-                        key={blog.id}
-                        title={blog.title}
-                        body={(blog.body).substring(0, 100)}
-                        onClick={() => navigate(`/blog/${blog.id}`)}
+                        key={item.id}
+                        title={item.title}
+                        body={(item.content).substring(0, 100)}
+                        onClick={() => navigate(`/blog/${item.id}`)}
 
                     />
+                )))}
 
 
-                ))}
+
 
 
             </div >
