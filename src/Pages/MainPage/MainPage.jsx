@@ -20,8 +20,8 @@ export default function MainPage() {
     const navigate = useNavigate()
     const handleCardClick = (id) => {
         console.log(`Card with id ${id} clicked`);
-        // You can also navigate to another page or perform any other action here
     };
+    console.log(data)
 
     return (
         <>
@@ -30,12 +30,12 @@ export default function MainPage() {
 
                 {data && (data.map((item) => (
                     <Card
-                        id={item.id}
+                        id={item._id}
                         img={re}
-                        key={item.id}
+                        key={item._id}
                         title={item.title}
                         body={(item.content).substring(0, 100)}
-                        onClick={() => navigate(`/blog/${item.id}`)}
+                        onClick={() => navigate(`/blog/${item._id}`)}
 
                     />
                 )))}

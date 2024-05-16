@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 import './NewBlog.css'
 import { Editor } from 'primereact/editor';
 
@@ -6,6 +7,8 @@ import { Editor } from 'primereact/editor';
 export default function NewBlog() {
     const [content, setContent] = useState('');
     const [title, setTitle] = useState('');
+    const navigate = useNavigate()
+
 
     const handleCreate = async (e) => {
 
@@ -27,6 +30,9 @@ export default function NewBlog() {
             });
             const data = await response.json();
             console.log('Blog created:', data);
+            setContent('')
+            setTitle('')
+            navigate('/dashboard')
         } catch (error) {
             console.error('Error creating blog:', error);
         }
