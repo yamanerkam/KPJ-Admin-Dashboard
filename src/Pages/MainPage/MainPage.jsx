@@ -2,8 +2,7 @@ import React, { useContext, useState, useEffect } from "react";
 import './MainPage.css'
 import Card from "../../Components/Card";
 import re from './react.svg'
-import { useNavigate, Link } from "react-router-dom";
-import { BlogData as blogs } from "./BlogData";
+import { useNavigate } from "react-router-dom";
 
 
 export default function MainPage() {

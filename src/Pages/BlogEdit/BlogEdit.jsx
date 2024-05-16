@@ -1,23 +1,56 @@
-import React, { useState } from 'react'
-import { useParams } from 'react-router-dom';
+import React, { useState, useEffect } from 'react'
+import { useParams, useNavigate } from 'react-router-dom';
 import './BlogEdit.css'
 import { Editor } from 'primereact/editor';
-import { BlogData as blog } from '../MainPage/BlogData';
 
 
 export default function BlogEdit() {
     const { id } = useParams()
-    const [value, setValue] = useState(blog[id].body);
-    const [title, setTitle] = useState(blog[id].title);
+    const navigate = useNavigate()
+    const [content, setContent] = useState('');
+    const [title, setTitle] = useState('');
 
-    const handleCreate = (e) => {
-        e.preventDefault()
-        console.log(title, value)
-    }
+    useEffect(() => {
+        // Fetch the existing blog data to populate the form
+        const fetchBlog = async () => {
+            try {
+                const response = await fetch(`http://localhost:3000/api/blogs/${id}`);
+                const data = await response.json();
+                setTitle(data.title);
+                setContent(data.content);
+            } catch (error) {
+                console.error('Error fetching blog:', error);
+            }
+        };
+
+        fetchBlog();
+    }, [id]);
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            const response = await fetch(`http://localhost:3000/api/blogs/${id}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ title, content }),
+            });
+            if (response.ok) {
+                navigate('/dashboard')
+            } else {
+                alert('Failed to update the blog.');
+            }
+        } catch (error) {
+            console.error('Error updating blog:', error);
+            alert('Failed to update the blog.');
+        }
+    };
+
 
     return (
         <>
-            <form onSubmit={handleCreate} action="submit">
+            <form onSubmit={handleSubmit} action="submit">
                 <h1>Edit Page</h1>
 
                 <div>
@@ -28,7 +61,7 @@ export default function BlogEdit() {
                 </div>
 
                 <div className='quill'>
-                    <Editor style={{ height: '320px' }} value={value} onTextChange={(e) => setValue(e.htmlValue)} />
+                    <input style={{ height: '320px' }} value={content} onChange={(e) => setContent(e.target.value)} />
                 </div>
 
 
